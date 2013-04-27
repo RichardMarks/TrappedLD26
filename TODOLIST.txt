@@ -1,0 +1,8 @@
+Win/Lose States & Screen data packages
+At least 5 Puzzles
+Audio:
+	game start
+	hit laser
+	hit switch
+	reach goal
+	bgm?

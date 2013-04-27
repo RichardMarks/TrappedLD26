@@ -24,6 +24,8 @@
 
 #include <SDL/SDL.h>
 #include <vector>
+#include <cmath>
+#include "data.h"
 
 static const unsigned WINDOW_WIDTH = 640;
 static const unsigned WINDOW_HEIGHT = 640;
@@ -452,6 +454,52 @@ struct Player
 
 Player* Player::handle = NULL;
 
+enum
+{
+    Title_State = 0,
+    Instructions_State,
+    Play_State,
+    Credits_State
+};
+
+struct Game
+{
+    static Game* handle;
+    unsigned state;
+    Player player;
+    Game()
+    {
+        state = Title_State;
+        Game::handle = this;
+    }
+};
+Game* Game::handle = NULL;
+
+void RenderPackedPackage(unsigned* package, unsigned packagelength, SDL_Surface* dest, unsigned color)
+{
+    std::vector<unsigned> bitmasks;
+    for (unsigned i = 0; i < 32; i++)
+    {
+        bitmasks.push_back(powf(2, 31 - i));
+    }
+
+    SDL_Rect block;
+    block.w = 20;
+    block.h = 20;
+    for (unsigned y = 0; y < packagelength; y++)
+    {
+        for (unsigned x = 0; x < bitmasks.size(); x++)
+        {
+            if (package[y] & bitmasks[x])
+            {
+                block.x = x * block.w;
+                block.y = y * block.h;
+                SDL_FillRect(dest, &block, color);
+            }
+        }
+    }
+}
+
 int main(int argc, char* argv[])
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -490,7 +538,10 @@ int main(int argc, char* argv[])
     s2.posy = WINDOW_HEIGHT / 2;
     Switch::Add(s2);
 
-    Player player;
+    //Player player;
+
+    Game game;
+    Player& player = Game::handle->player;
 
     unsigned edgecolor = SDL_MapRGB(display->format, 160, 160, 160);
     SDL_Rect topedge;
@@ -529,8 +580,28 @@ int main(int argc, char* argv[])
                     {
                         case SDLK_ESCAPE: { running = false; } break;
                         case SDLK_SPACE: {
-                            //s1.Flip();
+                            if (game.state == Title_State)
+                            {
+                                game.state = Instructions_State;
+                            }
+                            else if (game.state == Instructions_State)
+                            {
+                                game.state = Play_State;
+                            }
+                            else if (game.state == Play_State)
+                            {
+                                if (player.wingame || player.dead)
+                                {
+                                    game.state = Credits_State;
+                                }
+                            }
+                            else if (game.state == Credits_State)
+                            {
+                                player.Restart();
+                                game.state = Title_State;
+                            }
                         }
+                        /*
                         case SDLK_r:
                         {
                             if (player.wingame || player.dead)
@@ -538,6 +609,7 @@ int main(int argc, char* argv[])
                                 player.Restart();
                             }
                         }
+                        */
                         default: break;
                     }
                 }
@@ -549,22 +621,40 @@ int main(int argc, char* argv[])
         unsigned deltatime = (unsigned)(currenttime - time);
         time = currenttime;
 
-        player.Update(deltatime);
+        if (game.state == Play_State)
+        {
+            player.Update(deltatime);
+        }
 
         // render
         SDL_FillRect(display, &display->clip_rect, 0);
 
-        // draw lasers
-        Laser::DrawAll(display);
-        // draw switches
-        Switch::DrawAll(display);
-        // draw player
-        player.Draw(display);
-        // draw edges
-        SDL_FillRect(display, &topedge, edgecolor);
-        SDL_FillRect(display, &bottomedge, edgecolor);
-        SDL_FillRect(display, &leftedge, edgecolor);
-        SDL_FillRect(display, &rightedge, edgecolor);
+        if (game.state == Play_State)
+        {
+            // draw lasers
+            Laser::DrawAll(display);
+            // draw switches
+            Switch::DrawAll(display);
+            // draw player
+            player.Draw(display);
+            // draw edges
+            SDL_FillRect(display, &topedge, edgecolor);
+            SDL_FillRect(display, &bottomedge, edgecolor);
+            SDL_FillRect(display, &leftedge, edgecolor);
+            SDL_FillRect(display, &rightedge, edgecolor);
+        }
+        else if (game.state == Title_State)
+        {
+            RenderPackedPackage(titlepackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
+        }
+        else if (game.state == Instructions_State)
+        {
+            RenderPackedPackage(instructionspackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
+        }
+        else if (game.state == Credits_State)
+        {
+            RenderPackedPackage(creditspackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
+        }
 
         SDL_Flip(display);
         deltatime = (SDL_GetTicks() - framestarttime);

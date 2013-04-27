@@ -63,6 +63,31 @@ struct KBDevice
 
 KBDevice* KBDevice::handle = NULL;
 
+bool RectsCollide(SDL_Rect& first, SDL_Rect& second)
+{
+    unsigned left1, left2;
+    unsigned right1, right2;
+    unsigned top1, top2;
+    unsigned bottom1, bottom2;
+
+    left1 = first.x;
+    right1 = first.x + first.w;
+    top1 = first.y;
+    bottom1 = first.y + first.h;
+
+    left2 = second.x;
+    right2 = second.x + second.w;
+    top2 = second.y;
+    bottom2 = second.y + second.h;
+
+    if (bottom1 <= top2 || top1 >= bottom2 || right1 <= left2 || left1 >= right2)
+    {
+        return false;
+    }
+
+    return true;
+}
+
 enum
 {
     Laser_Off = 0,
@@ -255,7 +280,9 @@ struct Player
     unsigned speed;
     unsigned move;
     bool wingame;
+    bool dead;
     SDL_Rect r;
+    Switch* switchbox;
 
     Player()
     {
@@ -266,6 +293,9 @@ struct Player
         speed = 2;
         wingame = false;
         Player::handle = this;
+        dead = false;
+        switchbox = NULL;
+        Repos();
     }
 
     void Restart()
@@ -273,6 +303,9 @@ struct Player
         posx = (WINDOW_WIDTH - r.w) / 2;
         posy = (WINDOW_HEIGHT - r.h) / 2;
         wingame = false;
+        dead = false;
+        switchbox = NULL;
+        Repos();
     }
 
     void Update(unsigned deltatime)
@@ -288,9 +321,13 @@ struct Player
         if (keyboard.IsDown(SDLK_DOWN) || keyboard.IsDown(SDLK_s)) { MoveDown(); }
         if (keyboard.IsDown(SDLK_LEFT) || keyboard.IsDown(SDLK_a)) { MoveLeft(); }
         if (keyboard.IsDown(SDLK_RIGHT) || keyboard.IsDown(SDLK_d)) { MoveRight(); }
+        //r.x = posx;
+        //r.y = posy;
 
-        r.x = posx;
-        r.y = posy;
+        if (!OnSwitchbox())
+        {
+            switchbox = NULL;
+        }
 
         if (posx <= 16 || posx + r.w >= WINDOW_WIDTH-16 || posy <= 16 || posy + r.h >= WINDOW_HEIGHT-16)
         {
@@ -306,31 +343,87 @@ struct Player
         {
             return;
         }
-        SDL_FillRect(dest, &r, SDL_MapRGB(dest->format, 255, 255, 255));
+        SDL_FillRect(dest, &r, dead ? SDL_MapRGB(dest->format, 60, 30, 30) : SDL_MapRGB(dest->format, 255, 255, 255));
+    }
+
+    void Repos()
+    {
+        r.x = posx;
+        r.y = posy;
     }
 
     void MoveUp()
     {
         posy -= move;
+        Repos();
+        Collisions();
+    }
+
+    void Collisions()
+    {
+        Switch* s = HitSwitch();
+        if (s != NULL)
+        {
+            s->Flip();
+        }
     }
 
     void MoveDown()
     {
         posy += move;
+        Repos();
+        Collisions();
     }
 
     void MoveLeft()
     {
         posx -= move;
+        Repos();
+        Collisions();
     }
 
     void MoveRight()
     {
         posx += move;
+        Repos();
+        Collisions();
     }
 
     Laser* HitLaser() { return NULL; }
-    Switch* HitSwitch() { return NULL; }
+
+    Switch* HitSwitch()
+    {
+        // scan switches list for any collisions
+        for (unsigned si = 0; si < Switch::switches.size(); si++)
+        {
+            Switch& s = Switch::switches[si];
+            if (switchbox != NULL && &s == switchbox)
+            {
+                continue;
+            }
+
+            if (RectsCollide(r, s.r))
+            {
+                switchbox = &s;
+                return &s;
+            }
+        }
+        return NULL;
+    }
+
+    bool OnSwitchbox()
+    {
+        if (switchbox == NULL)
+        {
+            return false;
+        }
+
+        if (!RectsCollide(r, switchbox->r))
+        {
+            return false;
+        }
+        return true;
+    }
 };
 
 Player* Player::handle = NULL;

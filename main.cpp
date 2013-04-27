@@ -23,6 +23,7 @@
 */
 
 #include <SDL/SDL.h>
+#include <vector>
 
 static const unsigned WINDOW_WIDTH = 640;
 static const unsigned WINDOW_HEIGHT = 640;
@@ -52,7 +53,195 @@ struct KBDevice
         SDL_PumpEvents();
         state = SDL_GetKeyState(0);
     }
+    bool IsDown(unsigned sym)
+    {
+        return state[sym];
+    }
 };
+
+enum
+{
+    Laser_Off = 0,
+    Laser_Up,
+    Laser_Right,
+    Laser_Down,
+    Laser_Left
+};
+
+struct Laser
+{
+    static std::vector<Laser> lasers;
+
+    unsigned id;
+    unsigned posx;
+    unsigned posy;
+    unsigned direction;
+    unsigned thickness;
+    unsigned color;
+    SDL_Rect r;
+    Laser()
+    {
+        thickness = 8;
+        id = 0;
+        posx = 0;
+        posy = 0;
+        direction = Laser_Off;
+    }
+    void Draw(SDL_Surface* dest)
+    {
+        if (direction == Laser_Off || dest == NULL)
+        {
+            return;
+        }
+        color = SDL_MapRGB(dest->format, 255, 0, 0);
+        switch(direction)
+        {
+            case Laser_Up:
+            {
+                // laser goes from origin to the top of the screen
+                r.x = posx;
+                r.y = 0;
+                r.w = thickness;
+                r.h = posy;
+            } break;
+            case Laser_Down:
+            {
+                // laser goes from origin to bottom of the screen
+                r.x = posx;
+                r.y = posy;
+                r.w = thickness;
+                r.h = WINDOW_HEIGHT - posy;
+            } break;
+            case Laser_Left:
+            {
+                // laser goes from origin to left edge of the screen
+                r.x = 0;
+                r.y = posy;
+                r.w = posx;
+                r.h = thickness;
+            } break;
+            case Laser_Right:
+            {
+                // laser goes from origin to right edge of the screen
+                r.x = posx;
+                r.y = posy;
+                r.w = WINDOW_WIDTH - posx;
+                r.h = thickness;
+            } break;
+            default:break;
+        }
+        SDL_FillRect(dest, &r, color);
+    }
+
+    static void Add(int x, int y, int d)
+    {
+        Laser laser;
+        laser.id = Laser::lasers.size();
+        laser.posx = x;
+        laser.posy = y;
+        laser.direction = d;
+        Laser::lasers.push_back(laser);
+    }
+
+    static void DrawAll(SDL_Surface* dest)
+    {
+        for (unsigned i = 0; i < Laser::lasers.size(); i++)
+        {
+            Laser::lasers[i].Draw(dest);
+        }
+    }
+};
+
+std::vector<Laser> Laser::lasers;
+
+struct SwitchConnection
+{
+    unsigned id;
+    unsigned patha;
+    unsigned pathb;
+};
+struct Switch
+{
+    static std::vector<Switch> switches;
+
+    unsigned id;
+    unsigned posx;
+    unsigned posy;
+    bool flipped;
+
+    std::vector<SwitchConnection> connectionlist;
+
+    Switch()
+    {
+        id = 0;
+        posx = 0;
+        posy = 0;
+        flipped = false;
+    }
+
+    static void Add(Switch& switchr)
+    {
+        switchr.id = Switch::switches.size();
+        Switch::switches.push_back(switchr);
+    }
+
+    static void DrawAll(SDL_Surface* dest)
+    {
+        for (unsigned i = 0; i < Switch::switches.size(); i++)
+        {
+            Switch::switches[i].Draw(dest);
+        }
+    }
+
+    void AddConnection(Laser& laser, unsigned patha, unsigned pathb)
+    {
+        SwitchConnection connection;
+        connection.id = laser.id;
+        connection.patha = patha;
+        connection.pathb = pathb;
+        connectionlist.push_back(connection);
+    }
+
+    void Draw(SDL_Surface* dest)
+    {
+        if (dest == NULL)
+        {
+            return;
+        }
+
+        unsigned color = flipped ? SDL_MapRGB(dest->format, 0, 255, 0) : SDL_MapRGB(dest->format, 0, 96, 0);
+
+        SDL_Rect r;
+        r.w = 16;
+        r.h = 16;
+        r.x = posx - 8;
+        r.y = posy - 8;
+        SDL_FillRect(dest, &r, color);
+    }
+
+    void Flip()
+    {
+        // flip the switch
+        flipped = !flipped;
+
+        // all connections should be switched
+        for (unsigned i = 0; i < connectionlist.size(); i++)
+        {
+            SwitchConnection& connection = connectionlist[i];
+            Laser& laser = Laser::lasers[connection.id];
+            if (laser.direction == connection.patha)
+            {
+                laser.direction = connection.pathb;
+            }
+            else
+            {
+                laser.direction = connection.patha;
+            }
+        }
+    }
+};
+
+std::vector<Switch> Switch::switches;
 
 int main(int argc, char* argv[])
 {
@@ -76,6 +265,13 @@ int main(int argc, char* argv[])
     unsigned framestarttime = 0;
 
     // init
+    Laser::Add(32, 32, Laser_Up);
+
+    Switch s1;
+    s1.AddConnection(Laser::lasers[0], Laser_Up, Laser_Right);
+    s1.posx = 64;
+    s1.posy = 128;
+    Switch::Add(s1);
 
     // main loop
     time = SDL_GetTicks();
@@ -90,6 +286,9 @@ int main(int argc, char* argv[])
                     switch(sdlevent.key.keysym.sym)
                     {
                         case SDLK_ESCAPE: { running = false; } break;
+                        case SDLK_SPACE: {
+                            s1.Flip();
+                        }
                         default: break;
                     }
                 }
@@ -105,7 +304,9 @@ int main(int argc, char* argv[])
         SDL_FillRect(display, &display->clip_rect, 0);
 
         // draw lasers
+        Laser::DrawAll(display);
         // draw switches
+        Switch::DrawAll(display);
         // draw player
 
         SDL_Flip(display);

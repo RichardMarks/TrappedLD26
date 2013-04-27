@@ -107,7 +107,7 @@ struct Laser
     unsigned direction;
     unsigned thickness;
     unsigned color;
-    SDL_Rect r;
+    SDL_Rect r, r2;
     Laser()
     {
         thickness = 8;
@@ -159,7 +159,13 @@ struct Laser
             } break;
             default:break;
         }
+        r2.x = posx;// - thickness;
+        r2.y = posy;// - thickness;
+        r2.w = thickness * 2;
+        r2.h = thickness * 2;
+
         SDL_FillRect(dest, &r, color);
+        SDL_FillRect(dest, &r2, SDL_MapRGB(dest->format, 90, 90, 90));
     }
 
     static void Add(int x, int y, int d)
@@ -310,7 +316,7 @@ struct Player
 
     void Update(unsigned deltatime)
     {
-        if (wingame)
+        if (wingame || dead)
         {
             return;
         }
@@ -366,6 +372,12 @@ struct Player
         {
             s->Flip();
         }
+
+        Laser* laser = HitLaser();
+        if (laser != NULL)
+        {
+            dead = true;
+        }
     }
 
     void MoveDown()
@@ -389,7 +401,19 @@ struct Player
         Collisions();
     }
 
-    Laser* HitLaser() { return NULL; }
+    Laser* HitLaser()
+    {
+        // scan laser list for any collisions
+        for (unsigned li = 0; li < Laser::lasers.size(); li++)
+        {
+            Laser& l = Laser::lasers[li];
+            if (RectsCollide(r, l.r))
+            {
+                return &l;
+            }
+        }
+        return NULL;
+    }
 
     Switch* HitSwitch()
     {
@@ -451,12 +475,20 @@ int main(int argc, char* argv[])
 
     // init
     Laser::Add(32, 32, Laser_Up);
+    Laser::Add(WINDOW_WIDTH / 2, (WINDOW_HEIGHT / 2) + 128, Laser_Right);
 
     Switch s1;
     s1.AddConnection(Laser::lasers[0], Laser_Up, Laser_Right);
+    s1.AddConnection(Laser::lasers[1], Laser_Right, Laser_Left);
     s1.posx = 64;
-    s1.posy = 128;
+    s1.posy = WINDOW_HEIGHT / 2;
     Switch::Add(s1);
+
+    Switch s2;
+    s2.AddConnection(Laser::lasers[1], Laser_Right, Laser_Down);
+    s2.posx = (WINDOW_WIDTH / 2) + 128;
+    s2.posy = WINDOW_HEIGHT / 2;
+    Switch::Add(s2);
 
     Player player;
 
@@ -501,7 +533,7 @@ int main(int argc, char* argv[])
                         }
                         case SDLK_r:
                         {
-                            if (player.wingame)
+                            if (player.wingame || player.dead)
                             {
                                 player.Restart();
                             }

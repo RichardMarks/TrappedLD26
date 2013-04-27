@@ -35,6 +35,7 @@ struct KBDevice
     int count;
     unsigned char* state;
     bool* pressed;
+    static KBDevice* handle;
     KBDevice()
     {
         state = SDL_GetKeyState(&count);
@@ -43,6 +44,7 @@ struct KBDevice
         {
             pressed[i] = false;
         }
+        KBDevice::handle = this;
     }
     ~KBDevice()
     {
@@ -58,6 +60,8 @@ struct KBDevice
         return state[sym];
     }
 };
+
+KBDevice* KBDevice::handle = NULL;
 
 enum
 {
@@ -168,6 +172,7 @@ struct Switch
     unsigned posx;
     unsigned posy;
     bool flipped;
+    SDL_Rect r;
 
     std::vector<SwitchConnection> connectionlist;
 
@@ -177,6 +182,8 @@ struct Switch
         posx = 0;
         posy = 0;
         flipped = false;
+        r.w = 16;
+        r.h = 16;
     }
 
     static void Add(Switch& switchr)
@@ -211,11 +218,8 @@ struct Switch
 
         unsigned color = flipped ? SDL_MapRGB(dest->format, 0, 255, 0) : SDL_MapRGB(dest->format, 0, 96, 0);
 
-        SDL_Rect r;
-        r.w = 16;
-        r.h = 16;
-        r.x = posx - 8;
-        r.y = posy - 8;
+        r.x = posx - (r.w / 2);
+        r.y = posy - (r.h / 2);
         SDL_FillRect(dest, &r, color);
     }
 
@@ -242,6 +246,94 @@ struct Switch
 };
 
 std::vector<Switch> Switch::switches;
+
+struct Player
+{
+    static Player* handle;
+    unsigned posx;
+    unsigned posy;
+    unsigned speed;
+    unsigned move;
+    bool wingame;
+    SDL_Rect r;
+
+    Player()
+    {
+        r.w = 24;
+        r.h = 48;
+        posx = (WINDOW_WIDTH - r.w) / 2;
+        posy = (WINDOW_HEIGHT - r.h) / 2;
+        speed = 2;
+        wingame = false;
+        Player::handle = this;
+    }
+
+    void Restart()
+    {
+        posx = (WINDOW_WIDTH - r.w) / 2;
+        posy = (WINDOW_HEIGHT - r.h) / 2;
+        wingame = false;
+    }
+
+    void Update(unsigned deltatime)
+    {
+        if (wingame)
+        {
+            return;
+        }
+
+        move = speed * (deltatime / 7);
+        KBDevice& keyboard = *KBDevice::handle;
+        if (keyboard.IsDown(SDLK_UP) || keyboard.IsDown(SDLK_w)) { MoveUp(); }
+        if (keyboard.IsDown(SDLK_DOWN) || keyboard.IsDown(SDLK_s)) { MoveDown(); }
+        if (keyboard.IsDown(SDLK_LEFT) || keyboard.IsDown(SDLK_a)) { MoveLeft(); }
+        if (keyboard.IsDown(SDLK_RIGHT) || keyboard.IsDown(SDLK_d)) { MoveRight(); }
+
+        r.x = posx;
+        r.y = posy;
+
+        if (posx <= 16 || posx + r.w >= WINDOW_WIDTH-16 || posy <= 16 || posy + r.h >= WINDOW_HEIGHT-16)
+        {
+            wingame = true;
+            return;
+        }
+
+    }
+
+    void Draw(SDL_Surface* dest)
+    {
+        if (dest == NULL)
+        {
+            return;
+        }
+        SDL_FillRect(dest, &r, SDL_MapRGB(dest->format, 255, 255, 255));
+    }
+
+    void MoveUp()
+    {
+        posy -= move;
+    }
+
+    void MoveDown()
+    {
+        posy += move;
+    }
+
+    void MoveLeft()
+    {
+        posx -= move;
+    }
+
+    void MoveRight()
+    {
+        posx += move;
+    }
+
+    Laser* HitLaser() { return NULL; }
+    Switch* HitSwitch() { return NULL; }
+};
+
+Player* Player::handle = NULL;
 
 int main(int argc, char* argv[])
 {
@@ -273,6 +365,31 @@ int main(int argc, char* argv[])
     s1.posy = 128;
     Switch::Add(s1);
 
+    Player player;
+
+    unsigned edgecolor = SDL_MapRGB(display->format, 160, 160, 160);
+    SDL_Rect topedge;
+    unsigned edgewidth = 16;
+    topedge.x = 0;
+    topedge.y = 0;
+    topedge.w = WINDOW_WIDTH;
+    topedge.h = edgewidth;
+    SDL_Rect bottomedge;
+    bottomedge.x = 0;
+    bottomedge.y = WINDOW_HEIGHT - edgewidth;
+    bottomedge.w = WINDOW_WIDTH;
+    bottomedge.h = edgewidth;
+    SDL_Rect leftedge;
+    leftedge.x = 0;
+    leftedge.y = edgewidth;
+    leftedge.w = edgewidth;
+    leftedge.h = WINDOW_HEIGHT - (edgewidth * 2);
+    SDL_Rect rightedge;
+    rightedge.x = WINDOW_WIDTH - edgewidth;
+    rightedge.y = edgewidth;
+    rightedge.w = edgewidth;
+    rightedge.h = WINDOW_HEIGHT - (edgewidth * 2);
+
     // main loop
     time = SDL_GetTicks();
     while(running)
@@ -287,7 +404,14 @@ int main(int argc, char* argv[])
                     {
                         case SDLK_ESCAPE: { running = false; } break;
                         case SDLK_SPACE: {
-                            s1.Flip();
+                            //s1.Flip();
+                        }
+                        case SDLK_r:
+                        {
+                            if (player.wingame)
+                            {
+                                player.Restart();
+                            }
                         }
                         default: break;
                     }
@@ -300,6 +424,8 @@ int main(int argc, char* argv[])
         unsigned deltatime = (unsigned)(currenttime - time);
         time = currenttime;
 
+        player.Update(deltatime);
+
         // render
         SDL_FillRect(display, &display->clip_rect, 0);
 
@@ -308,6 +434,12 @@ int main(int argc, char* argv[])
         // draw switches
         Switch::DrawAll(display);
         // draw player
+        player.Draw(display);
+        // draw edges
+        SDL_FillRect(display, &topedge, edgecolor);
+        SDL_FillRect(display, &bottomedge, edgecolor);
+        SDL_FillRect(display, &leftedge, edgecolor);
+        SDL_FillRect(display, &rightedge, edgecolor);
 
         SDL_Flip(display);
         deltatime = (SDL_GetTicks() - framestarttime);

@@ -296,7 +296,7 @@ struct Player
         r.h = 48;
         posx = (WINDOW_WIDTH - r.w) / 2;
         posy = (WINDOW_HEIGHT - r.h) / 2;
-        speed = 2;
+        speed = 4;
         wingame = false;
         Player::handle = this;
         dead = false;
@@ -321,7 +321,7 @@ struct Player
             return;
         }
 
-        move = speed * (deltatime / 7);
+        move = speed * (deltatime / 30);
         KBDevice& keyboard = *KBDevice::handle;
         if (keyboard.IsDown(SDLK_UP) || keyboard.IsDown(SDLK_w)) { MoveUp(); }
         if (keyboard.IsDown(SDLK_DOWN) || keyboard.IsDown(SDLK_s)) { MoveDown(); }

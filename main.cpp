@@ -93,10 +93,10 @@ bool RectsCollide(SDL_Rect& first, SDL_Rect& second)
 enum
 {
     Laser_Off = 0,
-    Laser_Up,
-    Laser_Right,
-    Laser_Down,
-    Laser_Left
+    Laser_Up = 1,
+    Laser_Right = 2,
+    Laser_Down = 3,
+    Laser_Left = 4
 };
 
 struct Laser
@@ -233,10 +233,10 @@ struct Switch
         }
     }
 
-    void AddConnection(Laser& laser, unsigned patha, unsigned pathb)
+    void AddConnection(unsigned laserid, unsigned patha, unsigned pathb)
     {
         SwitchConnection connection;
-        connection.id = laser.id;
+        connection.id = laserid;
         connection.patha = patha;
         connection.pathb = pathb;
         connectionlist.push_back(connection);
@@ -534,6 +534,59 @@ void RenderPackedPackage(unsigned* package, unsigned packagelength, SDL_Surface*
     }
 }
 
+void SetupLasers()
+{
+    /*
+        0 - off
+        1 - up
+        2 - right
+        4 - down
+        8 - left
+    */
+    unsigned lasermap[] = {
+        2|4, 0|0, 0|0, 0|0, 0|0,
+        0|0, 0|0, 0|0, 4|8, 0|0,
+        0|0, 0|0, 0|0, 0|0, 0|0,
+        0|0, 1|2, 0|0, 0|0, 0|0,
+        0|0, 0|0, 0|0, 0|0, 1|8
+    };
+
+    for (unsigned y = 0; y < 5; y++)
+    {
+        unsigned ypos = 64 + (y * 128);
+        for (unsigned x = 0; x < 5; x++)
+        {
+            unsigned xpos = 64 + (x * 128);
+            unsigned i = x + (y*5);
+            unsigned key = lasermap[i];
+            if (key > 0)
+            {
+                if (key & 1) { Laser::Add(xpos, ypos, Laser_Up); }
+                if (key & 2) { Laser::Add(xpos, ypos, Laser_Right); }
+                if (key & 4) { Laser::Add(xpos, ypos, Laser_Down); }
+                if (key & 8) { Laser::Add(xpos, ypos, Laser_Left); }
+            }
+        }
+    }
+}
+
+void SetupSwitches()
+{
+    Switch s1;
+    s1.AddConnection(0, Laser_Up, Laser_Right);
+    s1.AddConnection(1, Laser_Right, Laser_Left);
+    s1.posx = 64;
+    s1.posy = WINDOW_HEIGHT / 2;
+    Switch::Add(s1);
+
+    Switch s2;
+    s2.AddConnection(1, Laser_Right, Laser_Down);
+    s2.posx = (WINDOW_WIDTH / 2) + 128;
+    s2.posy = WINDOW_HEIGHT / 2;
+    Switch::Add(s2);
+
+}
+
 int main(int argc, char* argv[])
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -556,23 +609,8 @@ int main(int argc, char* argv[])
     unsigned framestarttime = 0;
 
     // init
-    Laser::Add(32, 32, Laser_Up);
-    Laser::Add(WINDOW_WIDTH / 2, (WINDOW_HEIGHT / 2) + 128, Laser_Right);
-
-    Switch s1;
-    s1.AddConnection(Laser::lasers[0], Laser_Up, Laser_Right);
-    s1.AddConnection(Laser::lasers[1], Laser_Right, Laser_Left);
-    s1.posx = 64;
-    s1.posy = WINDOW_HEIGHT / 2;
-    Switch::Add(s1);
-
-    Switch s2;
-    s2.AddConnection(Laser::lasers[1], Laser_Right, Laser_Down);
-    s2.posx = (WINDOW_WIDTH / 2) + 128;
-    s2.posy = WINDOW_HEIGHT / 2;
-    Switch::Add(s2);
-
-    //Player player;
+    SetupLasers();
+    SetupSwitches();
 
     Game game;
     Player& player = Game::handle->player;

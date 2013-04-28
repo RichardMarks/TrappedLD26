@@ -1,0 +1,2221 @@
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch connection:0 0 8
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 6 1
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 4
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 0
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 0
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 0
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 0
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 0
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 0
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch:1 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:192 192 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 13
+adding switch connection:0 1 11
+adding switch connection:0 2 12
+adding switch connection:0 3 14
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 2
+adding laser:576 64 4
+adding laser:576 576 8
+adding laser:64 576 1
+adding laser:192 192 2
+adding laser:448 192 4
+adding laser:448 448 8
+adding laser:192 448 1
+adding switch:1 2 1
+adding switch:2 3 1
+adding switch:3 3 1
+adding switch:1 3 1
+adding switch connection:0 0 8
+adding switch connection:0 7 5
+adding switch connection:0 6 1
+adding switch connection:0 4 10
+adding switch connection:1 7 6
+adding switch connection:1 5 1
+adding switch connection:2 7 4
+adding switch connection:2 0 2
+adding switch connection:2 1 3
+adding laser:192 192 4
+adding laser:192 192 4
+adding laser:448 192 6
+adding laser:192 192 4
+adding laser:448 192 6
+adding switch:0 0 6
+adding laser:192 192 4
+adding laser:448 192 6
+adding switch:0 0 6
+adding switch:3 3 6
+adding laser:192 192 4
+adding laser:448 192 6
+adding switch:0 0 6
+adding switch:1 1 6
+adding switch:2 2 6
+adding switch:3 3 6
+adding laser:64 64 0
+adding laser:64 64 0
+adding switch:1 1 0
+adding switch connection:0 0 15
+adding laser:64 64 0
+adding switch:1 1 0
+adding switch connection:0 0 15
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:64 64 0
+adding switch:1 1 0
+adding switch connection:0 0 15
+adding laser:64 64 0
+adding switch:1 1 0
+adding switch connection:0 0 15
+adding laser:64 64 0
+adding switch:1 1 0
+adding switch connection:0 0 15
+adding laser:64 64 1
+adding laser:192 64 2
+adding laser:320 64 3
+adding switch:1 1 3
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 2
+adding laser:320 64 1
+adding switch:1 1 1
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding switch:1 1 1
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding switch:1 1 7
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding switch:1 1 15
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding laser:448 576 9
+adding switch:1 1 9
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding laser:448 320 9
+adding switch:1 1 9
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 0 15
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding laser:448 448 9
+adding switch:1 1 9
+adding switch connection:0 3 4
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding laser:448 448 8
+adding switch:1 1 8
+adding switch connection:0 3 4
+adding laser:64 64 3
+adding laser:192 64 1
+adding laser:320 64 1
+adding laser:448 64 7
+adding laser:64 576 15
+adding laser:448 448 8
+adding switch:1 1 8
+adding switch:2 3 8
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 1
+adding switch:1 1 1
+adding switch:2 3 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 1
+adding laser:64 64 2
+adding laser:64 192 10
+adding switch:1 1 10
+adding switch:2 3 10
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding switch:0 1 10
+adding switch:2 3 10
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding switch:0 1 10
+adding switch:2 3 10
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:576 320 2
+adding laser:64 320 8
+adding switch:0 1 8
+adding switch:2 3 8
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding switch:0 1 8
+adding switch:2 3 8
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 1 1
+adding switch:2 3 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 1 1
+adding switch:2 3 1
+adding switch:0 0 1
+adding switch:1 1 1
+adding switch:3 0 1
+adding switch:4 4 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 0 1
+adding switch:1 1 1
+adding switch:2 2 1
+adding switch:3 3 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 0 1
+adding switch:1 1 1
+adding switch:2 2 1
+adding switch:3 3 1
+adding switch:1 0 1
+adding switch:2 0 1
+adding switch:3 0 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 0 1
+adding switch:1 1 1
+adding switch:2 2 1
+adding switch:3 3 1
+adding switch:1 0 1
+adding switch:2 1 1
+adding switch:3 2 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 0 1
+adding switch:0 1 1
+adding switch:0 2 1
+adding switch:0 3 1
+adding switch:1 0 1
+adding switch:1 1 1
+adding switch:1 2 1
+adding switch:1 3 1
+adding switch:2 0 1
+adding switch:2 1 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:0 0 1
+adding switch:0 1 1
+adding switch:0 2 1
+adding switch:0 3 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 2
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding switch:0 3 1
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding switch:0 3 1
+adding switch connection:3 8 15
+adding switch connection:3 2 4
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding switch:0 3 1
+adding switch connection:3 8 15
+adding switch connection:3 2 4
+adding switch connection:3 9 10
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding switch:0 3 1
+adding switch connection:3 8 15
+adding switch connection:3 2 4
+adding switch connection:3 9 10
+adding switch:3 3 1
+adding switch connection:4 3 8
+adding switch connection:4 7 5
+adding laser:64 576 1
+adding laser:192 576 1
+adding laser:448 576 1
+adding laser:576 576 11
+adding laser:64 64 10
+adding laser:64 192 10
+adding laser:576 448 10
+adding laser:448 320 2
+adding laser:64 320 8
+adding laser:320 192 1
+adding switch:2 2 1
+adding switch connection:0 3 7
+adding switch connection:0 5 8
+adding switch:2 0 1
+adding switch connection:1 9 6
+adding switch connection:1 1 14
+adding switch:0 2 1
+adding switch connection:2 6 1
+adding switch:0 3 1
+adding switch connection:3 8 15
+adding switch connection:3 2 4
+adding switch connection:3 9 10
+adding switch:3 3 1
+adding switch connection:4 3 8
+adding switch connection:4 7 5
+adding laser:64 64 6
+adding laser:448 192 12
+adding laser:192 448 3
+adding laser:576 576 9
+adding switch:1 2 9
+adding switch:2 0 9
+adding switch connection:0 1 8
+adding switch connection:1 2 5
+adding switch connection:1 3 3
+adding switch connection:1 1 4
+adding laser:576 64 12
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:320 576 1
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:2 2 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch:3 1 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 2
+adding switch:0 2 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch:0 2 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 7
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 7
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 7
+adding switch connection:3 8 4
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 7
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 10
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 10
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding switch:3 0 14
+adding switch connection:0 7 9
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding switch:3 0 14
+adding switch connection:0 7 9
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding switch:3 0 14
+adding switch connection:5 0 7
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding switch:3 0 14
+adding switch connection:5 0 7
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding switch:3 0 14
+adding switch connection:5 0 7
+adding switch connection:5 2 15
+adding switch connection:5 7 13
+adding laser:576 64 12
+adding laser:64 576 3
+adding laser:448 320 1
+adding laser:448 576 1
+adding laser:192 320 12
+adding laser:320 448 14
+adding laser:320 192 11
+adding laser:64 64 15
+adding laser:192 192 15
+adding laser:192 448 14
+adding switch:1 1 14
+adding switch connection:0 2 1
+adding switch connection:0 3 10
+adding switch:3 1 14
+adding switch connection:1 5 6
+adding switch connection:1 9 13
+adding switch:1 3 14
+adding switch connection:2 2 6
+adding switch connection:2 9 4
+adding switch connection:2 4 9
+adding switch connection:2 8 11
+adding switch:0 2 14
+adding switch connection:3 4 6
+adding switch connection:3 8 4
+adding switch connection:3 9 6
+adding switch:0 1 14
+adding switch connection:4 4 14
+adding switch connection:4 8 8
+adding switch connection:4 6 9
+adding switch:3 0 14
+adding switch connection:5 0 7
+adding switch connection:5 2 15
+adding switch connection:5 7 13

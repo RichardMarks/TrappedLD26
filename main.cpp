@@ -459,7 +459,9 @@ enum
     Title_State = 0,
     Instructions_State,
     Play_State,
-    Credits_State
+    Credits_State,
+    Win_State,
+    Gameover_State
 };
 
 struct Game
@@ -471,6 +473,38 @@ struct Game
     {
         state = Title_State;
         Game::handle = this;
+    }
+
+    void NextState()
+    {
+        if (state == Title_State)
+        {
+            state = Instructions_State;
+        }
+        else if (state == Instructions_State)
+        {
+            state = Play_State;
+        }
+        else if (state == Win_State)
+        {
+            state = Credits_State;
+        }
+        else if (state == Gameover_State)
+        {
+            state = Credits_State;
+        }
+        else if (state == Play_State)
+        {
+            if (player.dead)
+            {
+                state = Gameover_State;
+            }
+        }
+        else if (state == Credits_State)
+        {
+            player.Restart();
+            state = Title_State;
+        }
     }
 };
 Game* Game::handle = NULL;
@@ -580,26 +614,7 @@ int main(int argc, char* argv[])
                     {
                         case SDLK_ESCAPE: { running = false; } break;
                         case SDLK_SPACE: {
-                            if (game.state == Title_State)
-                            {
-                                game.state = Instructions_State;
-                            }
-                            else if (game.state == Instructions_State)
-                            {
-                                game.state = Play_State;
-                            }
-                            else if (game.state == Play_State)
-                            {
-                                if (player.wingame || player.dead)
-                                {
-                                    game.state = Credits_State;
-                                }
-                            }
-                            else if (game.state == Credits_State)
-                            {
-                                player.Restart();
-                                game.state = Title_State;
-                            }
+                            game.NextState();
                         }
                         /*
                         case SDLK_r:
@@ -613,6 +628,13 @@ int main(int argc, char* argv[])
                         default: break;
                     }
                 }
+                case SDL_MOUSEBUTTONDOWN:
+                {
+                    if (sdlevent.button.button == SDL_BUTTON_LEFT)
+                    {
+                        game.NextState();
+                    }
+                }
             }
         }
         keyboard.Update();
@@ -624,6 +646,10 @@ int main(int argc, char* argv[])
         if (game.state == Play_State)
         {
             player.Update(deltatime);
+            if (player.wingame)
+            {
+                game.state = Win_State;
+            }
         }
 
         // render
@@ -654,6 +680,14 @@ int main(int argc, char* argv[])
         else if (game.state == Credits_State)
         {
             RenderPackedPackage(creditspackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
+        }
+        else if (game.state == Win_State)
+        {
+            RenderPackedPackage(winpackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
+        }
+        else if (game.state == Gameover_State)
+        {
+            RenderPackedPackage(gameoverpackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
         }
 
         SDL_Flip(display);

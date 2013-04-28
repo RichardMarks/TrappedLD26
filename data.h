@@ -4,5 +4,7 @@
 extern unsigned titlepackage[];
 extern unsigned instructionspackage[];
 extern unsigned creditspackage[];
+extern unsigned winpackage[];
+extern unsigned gameoverpackage[];
 
 #endif

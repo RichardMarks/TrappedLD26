@@ -15,6 +15,11 @@ static const unsigned WINDOW_HEIGHT = 640;
 static const unsigned GRID_RESX = 20;
 static const unsigned GRID_RESY = 20;
 
+enum {
+    Laser_Off, Laser_Up, Laser_Right, Laser_Down, Laser_Left
+
+};
+
 int main(int argc, char* argv[])
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -22,7 +27,7 @@ int main(int argc, char* argv[])
         return -1;
     }
     SDL_Surface* display = NULL;
-    if ((display = SDL_SetVideoMode(640, 640, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
+    if ((display = SDL_SetVideoMode(1280, 640, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     {
         return -1;
     }

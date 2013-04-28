@@ -6,5 +6,6 @@ extern unsigned instructionspackage[];
 extern unsigned creditspackage[];
 extern unsigned winpackage[];
 extern unsigned gameoverpackage[];
+extern unsigned potatopackage[];
 
 #endif

@@ -26,566 +26,12 @@
 #include <vector>
 #include <cmath>
 #include "data.h"
-
-static const unsigned WINDOW_WIDTH = 640;
-static const unsigned WINDOW_HEIGHT = 640;
-static const unsigned GRID_RESX = 20;
-static const unsigned GRID_RESY = 20;
-
-struct KBDevice
-{
-    int count;
-    unsigned char* state;
-    bool* pressed;
-    static KBDevice* handle;
-    KBDevice()
-    {
-        state = SDL_GetKeyState(&count);
-        pressed = new bool [count];
-        for (signed i = 0; i < count; i++)
-        {
-            pressed[i] = false;
-        }
-        KBDevice::handle = this;
-    }
-    ~KBDevice()
-    {
-        delete[] pressed;
-    }
-    void Update()
-    {
-        SDL_PumpEvents();
-        state = SDL_GetKeyState(0);
-    }
-    bool IsDown(unsigned sym)
-    {
-        return state[sym];
-    }
-};
-
-KBDevice* KBDevice::handle = NULL;
-
-bool RectsCollide(SDL_Rect& first, SDL_Rect& second)
-{
-    unsigned left1, left2;
-    unsigned right1, right2;
-    unsigned top1, top2;
-    unsigned bottom1, bottom2;
-
-    left1 = first.x;
-    right1 = first.x + first.w;
-    top1 = first.y;
-    bottom1 = first.y + first.h;
-
-    left2 = second.x;
-    right2 = second.x + second.w;
-    top2 = second.y;
-    bottom2 = second.y + second.h;
-
-    if (bottom1 <= top2 || top1 >= bottom2 || right1 <= left2 || left1 >= right2)
-    {
-        return false;
-    }
-
-    return true;
-}
-
-enum
-{
-    Laser_Off = 0,
-    Laser_Up = 1,
-    Laser_Right = 2,
-    Laser_Down = 3,
-    Laser_Left = 4
-};
-
-struct Laser
-{
-    static std::vector<Laser> lasers;
-
-    unsigned id;
-    unsigned posx;
-    unsigned posy;
-    unsigned direction;
-    unsigned thickness;
-    unsigned color;
-    SDL_Rect r, r2;
-    Laser()
-    {
-        thickness = 8;
-        id = 0;
-        posx = 0;
-        posy = 0;
-        direction = Laser_Off;
-    }
-    void Draw(SDL_Surface* dest)
-    {
-        if (direction == Laser_Off || dest == NULL)
-        {
-            return;
-        }
-        color = SDL_MapRGB(dest->format, 255, 0, 0);
-        switch(direction)
-        {
-            case Laser_Up:
-            {
-                // laser goes from origin to the top of the screen
-                r.x = posx;
-                r.y = 0;
-                r.w = thickness;
-                r.h = posy;
-            } break;
-            case Laser_Down:
-            {
-                // laser goes from origin to bottom of the screen
-                r.x = posx;
-                r.y = posy;
-                r.w = thickness;
-                r.h = WINDOW_HEIGHT - posy;
-            } break;
-            case Laser_Left:
-            {
-                // laser goes from origin to left edge of the screen
-                r.x = 0;
-                r.y = posy;
-                r.w = posx;
-                r.h = thickness;
-            } break;
-            case Laser_Right:
-            {
-                // laser goes from origin to right edge of the screen
-                r.x = posx;
-                r.y = posy;
-                r.w = WINDOW_WIDTH - posx;
-                r.h = thickness;
-            } break;
-            default:break;
-        }
-        r2.x = posx;// - thickness;
-        r2.y = posy;// - thickness;
-        r2.w = thickness * 2;
-        r2.h = thickness * 2;
-
-        SDL_FillRect(dest, &r, color);
-        SDL_FillRect(dest, &r2, SDL_MapRGB(dest->format, 90, 90, 90));
-    }
-
-    static void Add(int x, int y, int d)
-    {
-        Laser laser;
-        laser.id = Laser::lasers.size();
-        laser.posx = x;
-        laser.posy = y;
-        laser.direction = d;
-        Laser::lasers.push_back(laser);
-    }
-
-    static void DrawAll(SDL_Surface* dest)
-    {
-        for (unsigned i = 0; i < Laser::lasers.size(); i++)
-        {
-            Laser::lasers[i].Draw(dest);
-        }
-    }
-};
-
-std::vector<Laser> Laser::lasers;
-
-struct SwitchConnection
-{
-    unsigned id;
-    unsigned patha;
-    unsigned pathb;
-};
-struct Switch
-{
-    static std::vector<Switch> switches;
-
-    unsigned id;
-    unsigned posx;
-    unsigned posy;
-    bool flipped;
-    SDL_Rect r;
-
-    std::vector<SwitchConnection> connectionlist;
-
-    Switch()
-    {
-        id = 0;
-        posx = 0;
-        posy = 0;
-        flipped = false;
-        r.w = 16;
-        r.h = 16;
-    }
-
-    static void Add(Switch& switchr)
-    {
-        switchr.id = Switch::switches.size();
-        Switch::switches.push_back(switchr);
-    }
-
-    static void DrawAll(SDL_Surface* dest)
-    {
-        for (unsigned i = 0; i < Switch::switches.size(); i++)
-        {
-            Switch::switches[i].Draw(dest);
-        }
-    }
-
-    void AddConnection(unsigned laserid, unsigned patha, unsigned pathb)
-    {
-        SwitchConnection connection;
-        connection.id = laserid;
-        connection.patha = patha;
-        connection.pathb = pathb;
-        connectionlist.push_back(connection);
-    }
-
-    void Draw(SDL_Surface* dest)
-    {
-        if (dest == NULL)
-        {
-            return;
-        }
-
-        unsigned color = flipped ? SDL_MapRGB(dest->format, 0, 255, 0) : SDL_MapRGB(dest->format, 0, 96, 0);
-
-        r.x = posx - (r.w / 2);
-        r.y = posy - (r.h / 2);
-        SDL_FillRect(dest, &r, color);
-    }
-
-    void Flip()
-    {
-        // flip the switch
-        flipped = !flipped;
-
-        // all connections should be switched
-        for (unsigned i = 0; i < connectionlist.size(); i++)
-        {
-            SwitchConnection& connection = connectionlist[i];
-            Laser& laser = Laser::lasers[connection.id];
-            if (laser.direction == connection.patha)
-            {
-                laser.direction = connection.pathb;
-            }
-            else
-            {
-                laser.direction = connection.patha;
-            }
-        }
-    }
-};
-
-std::vector<Switch> Switch::switches;
-
-struct Player
-{
-    static Player* handle;
-    unsigned posx;
-    unsigned posy;
-    unsigned speed;
-    unsigned move;
-    bool wingame;
-    bool dead;
-    SDL_Rect r;
-    Switch* switchbox;
-
-    Player()
-    {
-        r.w = 24;
-        r.h = 48;
-        posx = (WINDOW_WIDTH - r.w) / 2;
-        posy = (WINDOW_HEIGHT - r.h) / 2;
-        speed = 4;
-        wingame = false;
-        Player::handle = this;
-        dead = false;
-        switchbox = NULL;
-        Repos();
-    }
-
-    void Restart()
-    {
-        posx = (WINDOW_WIDTH - r.w) / 2;
-        posy = (WINDOW_HEIGHT - r.h) / 2;
-        wingame = false;
-        dead = false;
-        switchbox = NULL;
-        Repos();
-    }
-
-    void Update(unsigned deltatime)
-    {
-        if (wingame || dead)
-        {
-            return;
-        }
-
-        move = speed * (deltatime / 30);
-        KBDevice& keyboard = *KBDevice::handle;
-        if (keyboard.IsDown(SDLK_UP) || keyboard.IsDown(SDLK_w)) { MoveUp(); }
-        if (keyboard.IsDown(SDLK_DOWN) || keyboard.IsDown(SDLK_s)) { MoveDown(); }
-        if (keyboard.IsDown(SDLK_LEFT) || keyboard.IsDown(SDLK_a)) { MoveLeft(); }
-        if (keyboard.IsDown(SDLK_RIGHT) || keyboard.IsDown(SDLK_d)) { MoveRight(); }
-        //r.x = posx;
-        //r.y = posy;
-
-        if (!OnSwitchbox())
-        {
-            switchbox = NULL;
-        }
-
-        if (posx <= 16 || posx + r.w >= WINDOW_WIDTH-16 || posy <= 16 || posy + r.h >= WINDOW_HEIGHT-16)
-        {
-            wingame = true;
-            return;
-        }
-
-    }
-
-    void Draw(SDL_Surface* dest)
-    {
-        if (dest == NULL)
-        {
-            return;
-        }
-        SDL_FillRect(dest, &r, dead ? SDL_MapRGB(dest->format, 60, 30, 30) : SDL_MapRGB(dest->format, 255, 255, 255));
-    }
-
-    void Repos()
-    {
-        r.x = posx;
-        r.y = posy;
-    }
-
-    void MoveUp()
-    {
-        posy -= move;
-        Repos();
-        Collisions();
-    }
-
-    void Collisions()
-    {
-        Switch* s = HitSwitch();
-        if (s != NULL)
-        {
-            s->Flip();
-        }
-
-        Laser* laser = HitLaser();
-        if (laser != NULL)
-        {
-            dead = true;
-        }
-    }
-
-    void MoveDown()
-    {
-        posy += move;
-        Repos();
-        Collisions();
-    }
-
-    void MoveLeft()
-    {
-        posx -= move;
-        Repos();
-        Collisions();
-    }
-
-    void MoveRight()
-    {
-        posx += move;
-        Repos();
-        Collisions();
-    }
-
-    Laser* HitLaser()
-    {
-        // scan laser list for any collisions
-        for (unsigned li = 0; li < Laser::lasers.size(); li++)
-        {
-            Laser& l = Laser::lasers[li];
-            if (RectsCollide(r, l.r))
-            {
-                return &l;
-            }
-        }
-        return NULL;
-    }
-
-    Switch* HitSwitch()
-    {
-        // scan switches list for any collisions
-        for (unsigned si = 0; si < Switch::switches.size(); si++)
-        {
-            Switch& s = Switch::switches[si];
-            if (switchbox != NULL && &s == switchbox)
-            {
-                continue;
-            }
-
-            if (RectsCollide(r, s.r))
-            {
-                switchbox = &s;
-                return &s;
-            }
-        }
-        return NULL;
-    }
-
-    bool OnSwitchbox()
-    {
-        if (switchbox == NULL)
-        {
-            return false;
-        }
-
-        if (!RectsCollide(r, switchbox->r))
-        {
-            return false;
-        }
-        return true;
-    }
-};
-
-Player* Player::handle = NULL;
-
-enum
-{
-    Title_State = 0,
-    Instructions_State,
-    Play_State,
-    Credits_State,
-    Win_State,
-    Gameover_State
-};
-
-struct Game
-{
-    static Game* handle;
-    unsigned state;
-    Player player;
-    Game()
-    {
-        state = Title_State;
-        Game::handle = this;
-    }
-
-    void NextState()
-    {
-        if (state == Title_State)
-        {
-            state = Instructions_State;
-        }
-        else if (state == Instructions_State)
-        {
-            state = Play_State;
-        }
-        else if (state == Win_State)
-        {
-            state = Credits_State;
-        }
-        else if (state == Gameover_State)
-        {
-            state = Credits_State;
-        }
-        else if (state == Play_State)
-        {
-            if (player.dead)
-            {
-                state = Gameover_State;
-            }
-        }
-        else if (state == Credits_State)
-        {
-            player.Restart();
-            state = Title_State;
-        }
-    }
-};
-Game* Game::handle = NULL;
-
-void RenderPackedPackage(unsigned* package, unsigned packagelength, SDL_Surface* dest, unsigned color)
-{
-    std::vector<unsigned> bitmasks;
-    for (unsigned i = 0; i < 32; i++)
-    {
-        bitmasks.push_back(powf(2, 31 - i));
-    }
-
-    SDL_Rect block;
-    block.w = 20;
-    block.h = 20;
-    for (unsigned y = 0; y < packagelength; y++)
-    {
-        for (unsigned x = 0; x < bitmasks.size(); x++)
-        {
-            if (package[y] & bitmasks[x])
-            {
-                block.x = x * block.w;
-                block.y = y * block.h;
-                SDL_FillRect(dest, &block, color);
-            }
-        }
-    }
-}
-
-void SetupLasers()
-{
-    /*
-        0 - off
-        1 - up
-        2 - right
-        4 - down
-        8 - left
-    */
-    unsigned lasermap[] = {
-        2|4, 0|0, 0|0, 0|0, 0|0,
-        0|0, 0|0, 0|0, 4|8, 0|0,
-        0|0, 0|0, 0|0, 0|0, 0|0,
-        0|0, 1|2, 0|0, 0|0, 0|0,
-        0|0, 0|0, 0|0, 0|0, 1|8
-    };
-
-    for (unsigned y = 0; y < 5; y++)
-    {
-        unsigned ypos = 64 + (y * 128);
-        for (unsigned x = 0; x < 5; x++)
-        {
-            unsigned xpos = 64 + (x * 128);
-            unsigned i = x + (y*5);
-            unsigned key = lasermap[i];
-            if (key > 0)
-            {
-                if (key & 1) { Laser::Add(xpos, ypos, Laser_Up); }
-                if (key & 2) { Laser::Add(xpos, ypos, Laser_Right); }
-                if (key & 4) { Laser::Add(xpos, ypos, Laser_Down); }
-                if (key & 8) { Laser::Add(xpos, ypos, Laser_Left); }
-            }
-        }
-    }
-}
-
-void SetupSwitches()
-{
-    Switch s1;
-    s1.AddConnection(0, Laser_Up, Laser_Right);
-    s1.AddConnection(1, Laser_Right, Laser_Left);
-    s1.posx = 64;
-    s1.posy = WINDOW_HEIGHT / 2;
-    Switch::Add(s1);
-
-    Switch s2;
-    s2.AddConnection(1, Laser_Right, Laser_Down);
-    s2.posx = (WINDOW_WIDTH / 2) + 128;
-    s2.posy = WINDOW_HEIGHT / 2;
-    Switch::Add(s2);
-
-}
+#include "constants.h"
+#include "kbdevice.h"
+#include "laser.h"
+#include "switch.h"
+#include "player.h"
+#include "game.h"
 
 int main(int argc, char* argv[])
 {
@@ -609,10 +55,9 @@ int main(int argc, char* argv[])
     unsigned framestarttime = 0;
 
     // init
-    SetupLasers();
-    SetupSwitches();
 
     Game game;
+    game.Reset();
     Player& player = Game::handle->player;
 
     unsigned edgecolor = SDL_MapRGB(display->format, 160, 160, 160);
@@ -654,15 +99,6 @@ int main(int argc, char* argv[])
                         case SDLK_SPACE: {
                             game.NextState();
                         }
-                        /*
-                        case SDLK_r:
-                        {
-                            if (player.wingame || player.dead)
-                            {
-                                player.Restart();
-                            }
-                        }
-                        */
                         default: break;
                     }
                 }
@@ -671,6 +107,27 @@ int main(int argc, char* argv[])
                     if (sdlevent.button.button == SDL_BUTTON_LEFT)
                     {
                         game.NextState();
+                    }
+                }
+                case SDL_ACTIVEEVENT:
+                {
+                    Uint8 aestate = sdlevent.active.state;
+                    if (aestate & SDL_APPACTIVE)
+                    {
+                        if (sdlevent.active.gain)
+                        {
+                            if (game.potato)
+                            {
+                                game.state = Potato_State;
+                            }
+                        }
+                        else
+                        {
+                            if (game.state == Play_State)
+                            {
+                                game.potato = true;
+                            }
+                        }
                     }
                 }
             }
@@ -726,6 +183,10 @@ int main(int argc, char* argv[])
         else if (game.state == Gameover_State)
         {
             RenderPackedPackage(gameoverpackage, 32, display, SDL_MapRGB(display->format, 255, 255, 255));
+        }
+        else if (game.state == Potato_State)
+        {
+            RenderPackedPackage(potatopackage, 32, display, SDL_MapRGB(display->format, 202, 137, 40));
         }
 
         SDL_Flip(display);

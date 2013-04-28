@@ -32,6 +32,7 @@
 #include "switch.h"
 #include "player.h"
 #include "game.h"
+#include "levels.h"
 
 int main(int argc, char* argv[])
 {
@@ -55,7 +56,7 @@ int main(int argc, char* argv[])
     unsigned framestarttime = 0;
 
     // init
-
+    InitLevels();
     Game game;
     game.Reset();
     Player& player = Game::handle->player;

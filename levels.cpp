@@ -1,12 +1,74 @@
 #include "levels.h"
 #include "switch.h"
 #include "laser.h"
+#include <iostream>
 
-typedef void (*levelfunction)();
-static levelfunction levels[] =
+unsigned LEVEL_COUNT = 0;
+
+void InitLevels()
 {
-    &Level1, &Level2, &Level3, &Level4, &Level5
-};
+    FILE* fp = fopen("levels.txt", "r");
+    if (fp != NULL)
+    {
+        char dummy[24];
+        fscanf(fp, "%s %d\n", dummy, &LEVEL_COUNT);
+        fclose(fp);
+    }
+}
+
+bool LoadLevelData(const char* filename)
+{
+    FILE* fp = fopen(filename, "r");
+    if (fp == NULL)
+    {
+        return false;
+    }
+
+    char key;
+    unsigned x, y, cfg, switchid, laserid, path;
+
+    while(true)
+    {
+        fscanf(fp, "%c ", &key);
+        if (key == 'l')
+        {
+            fscanf(fp, "%u %u %u\n", &x, &y, &cfg);
+            x *= 128;
+            x += 64;
+            y *= 128;
+            y += 64;
+            Laser::Add(x, y, cfg);
+            std::cerr << "adding laser:" << x << " " << y << " " << cfg << "\n";
+        }
+        else if (key == 's')
+        {
+            fscanf(fp, "%u %u\n", &x, &y);
+            Switch sw;
+            sw.posx = SwitchX(x);
+            sw.posy = SwitchY(y);
+            Switch::Add(sw);
+            std::cerr << "adding switch:" << x << " " << y << " " << cfg << "\n";
+        }
+        else if (key == 'c')
+        {
+            fscanf(fp, "%u %u %u\n", &switchid, &laserid, &path);
+            Switch& swr = Switch::switches[switchid];
+            swr.AddConnection(laserid, path);
+            std::cerr << "adding switch connection:" << switchid << " " << laserid << " " << path << "\n";
+        }
+        else
+        {
+            std::cerr << "unknown key:" << key << "\n";
+        }
+        if (feof(fp))
+        {
+            break;
+        }
+    }
+
+    fclose(fp);
+    return true;
+}
 
 bool LoadLevel(unsigned level)
 {
@@ -17,58 +79,14 @@ bool LoadLevel(unsigned level)
 
     Laser::lasers.clear();
     Switch::switches.clear();
-    levels[level]();
+    char filename[2048];
+    sprintf(filename, "levels/level%d.txt", 1 + level);
+    if (!LoadLevelData(filename))
+    {
+        std::cerr << "failed to load level:" << filename << "\n";
+        return false;
+    }
     return true;
 }
 
 // helpers
-unsigned SwitchX(unsigned xpos) { return 128 + (xpos* 128); }
-unsigned SwitchY(unsigned ypos) { return 128 + (ypos* 128); }
-
-void Level2()
-{
-    /*
-        0 - off
-        1 - up
-        2 - right
-        4 - down
-        8 - left
-    */
-    unsigned lasermap[] = {
-        2|4, 0|0, 0|0, 0|0, 0|0,
-        0|0, 0|0, 0|0, 4|8, 0|0,
-        0|0, 0|0, 0|0, 0|0, 0|0,
-        0|0, 1|2, 0|0, 0|0, 0|0,
-        0|0, 0|0, 0|0, 0|0, 1|8
-    };
-    Laser::Map(lasermap);
-
-    /*
-    unsigned switchmap[] = {
-        0,0,1,0,
-        0,0,0,0,
-        0,1,0,0,
-        0,0,0,0
-    };
-    */
-
-    Switch s1, s2;
-    s1.posx = SwitchX(1);
-    s1.posy = SwitchY(2);
-    s2.posx = SwitchX(2);
-    s2.posy = SwitchY(0);
-
-
-    s1.AddConnection(1, 8);
-    s2.AddConnection(2, 1|4);
-    s2.AddConnection(3, 1|2);
-    s2.AddConnection(1, 4);
-
-    Switch::Add(s1);
-    Switch::Add(s2);
-}
-
-
-void Level3(){}
-void Level4(){}
-void Level5(){}

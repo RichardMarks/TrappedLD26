@@ -4,6 +4,9 @@
 
 std::vector<Switch> Switch::switches;
 
+unsigned SwitchX(unsigned xpos) { return 128 + (xpos* 128); }
+unsigned SwitchY(unsigned ypos) { return 128 + (ypos* 128); }
+
 Switch::Switch()
 {
     id = 0;

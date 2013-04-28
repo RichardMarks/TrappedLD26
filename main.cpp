@@ -33,6 +33,33 @@
 #include "player.h"
 #include "game.h"
 #include "levels.h"
+#include "audio.h"
+
+#if 0
+int main(int argc, char* argv[])
+{
+    if (SDL_Init(SDL_INIT_AUDIO) < 0)
+    {
+        return -1;
+    }
+    Audio audio;
+
+    signed startsfx = Audio::LoadClip("audio/start.wav");
+    signed lasersfx = Audio::LoadClip("audio/laser.wav");
+    signed switchsfx = Audio::LoadClip("audio/switch.wav");
+    signed goalsfx = Audio::LoadClip("audio/goal.wav");
+    if (startsfx < 0)
+    {
+        return -1;
+    }
+
+    Audio::Play(lasersfx);
+
+    SDL_Delay(4000);
+    SDL_Quit();
+    return 0;
+}
+#endif
 
 int main(int argc, char* argv[])
 {
@@ -57,6 +84,7 @@ int main(int argc, char* argv[])
 
     // init
     InitLevels();
+    Audio audio;
     Game game;
     game.Reset();
     Player& player = Game::handle->player;

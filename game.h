@@ -25,6 +25,12 @@ class Game
     Player player;
     bool potato;
     unsigned level;
+
+    signed startsfx;
+    signed lasersfx;
+    signed switchsfx;
+    signed goalsfx;
+
     Game();
     void Reset();
     void NextState();

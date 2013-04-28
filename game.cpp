@@ -1,16 +1,28 @@
+#include <cmath>
+#include <iostream>
+
 #include "game.h"
 #include "constants.h"
 #include "laser.h"
 #include "switch.h"
 #include "levels.h"
-#include <cmath>
+#include "audio.h"
+
 
 Game* Game::handle = NULL;
 
 Game::Game()
 {
-    state = Title_State;
     Game::handle = this;
+    startsfx = Audio::LoadClip("audio/start.wav");
+    if (startsfx < 0) { std::cerr << "failed to load start.wav\n";}
+    lasersfx = Audio::LoadClip("audio/laser.wav");
+    if (lasersfx < 0) { std::cerr << "failed to load laser.wav\n";}
+    switchsfx = Audio::LoadClip("audio/switch.wav");
+    if (switchsfx < 0) { std::cerr << "failed to load switch.wav\n";}
+    goalsfx = Audio::LoadClip("audio/goal.wav");
+    if (goalsfx < 0) { std::cerr << "failed to load goal.wav\n";}
+
     Reset();
 }
 
@@ -108,6 +120,7 @@ void Game::NextState()
             {
                 Reset();
             }
+            Audio::Play(startsfx);
         } break;
 
         case Play_State:
@@ -134,6 +147,7 @@ void Game::NextState()
             {
                 player.Restart();
                 state = Play_State;
+                Audio::Play(startsfx);
             }
         } break;
 

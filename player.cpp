@@ -4,7 +4,8 @@
 #include "switch.h"
 #include "collision.h"
 #include "kbdevice.h"
-
+#include "audio.h"
+#include "game.h"
 Player* Player::handle = NULL;
 
 Player::Player()
@@ -54,6 +55,7 @@ void Player::Update(unsigned deltatime)
 
     if (posx <= 16 || posx + r.w >= WINDOW_WIDTH-16 || posy <= 16 || posy + r.h >= WINDOW_HEIGHT-16)
     {
+        Audio::Play(Game::handle->goalsfx);
         wingame = true;
         return;
     }
@@ -88,12 +90,14 @@ void Player::Collisions()
     if (s != NULL)
     {
         s->Flip();
+        Audio::Play(Game::handle->switchsfx);
     }
 
     Laser* laser = HitLaser();
     if (laser != NULL)
     {
         dead = true;
+        Audio::Play(Game::handle->lasersfx);
     }
 }
 

@@ -2,6 +2,7 @@
 #include "constants.h"
 #include "laser.h"
 #include "switch.h"
+#include "levels.h"
 #include <cmath>
 
 Game* Game::handle = NULL;
@@ -10,142 +11,147 @@ Game::Game()
 {
     state = Title_State;
     Game::handle = this;
-    potato = false;
+    Reset();
+}
+
+void Game::Save()
+{
+    FILE* fp = fopen("trappedld26save.data", "wb");
+    if (fp != NULL)
+    {
+        for (unsigned i = 0; i < 7; i++)
+        {
+            unsigned n = 0xCADE6387 + (rand() % 0xABCD8756);
+            fwrite(&n, sizeof(unsigned), 1, fp);
+        }
+        fwrite(&level, sizeof(unsigned), 1, fp);
+        fwrite(&player.posx, sizeof(unsigned), 1, fp);
+        fwrite(&player.posy, sizeof(unsigned), 1, fp);
+        fwrite(&level, sizeof(unsigned), 1, fp);
+        for (unsigned i = 0; i < 6; i++)
+        {
+            unsigned n = 0xCADE6387 + (rand() % 0xABCD8756);
+            fwrite(&n, sizeof(unsigned), 1, fp);
+        }
+        for (unsigned i = 0; i < Switch::switches.size(); i++)
+        {
+            unsigned char n = Switch::switches[i].flipped ? 1 : 0;
+            fwrite(&n, sizeof(unsigned char), 1, fp);
+        }
+        fclose(fp);
+    }
+}
+
+void Game::Load()
+{
+    player.Restart();
+    FILE* fp = fopen("trappedld26save.data", "rb");
+    if (fp != NULL)
+    {
+        fseek(fp, 7 * sizeof(unsigned), SEEK_SET);
+        fread(&level, sizeof(unsigned), 1, fp);
+        fread(&player.posx, sizeof(unsigned), 1, fp);
+        fread(&player.posy, sizeof(unsigned), 1, fp);
+        player.Repos();
+        if (!LoadLevel(level))
+        {
+            fclose(fp);
+            Reset();
+            return;
+        }
+        for (unsigned i = 0; i < Switch::switches.size(); i++)
+        {
+            unsigned char n;
+            fread(&n, sizeof(unsigned char), 1, fp);
+            if (n > 0)
+            {
+                Switch::switches[i].Flip();
+            }
+        }
+
+
+        fclose(fp);
+    }
+
+}
+
+void Game::RestartLevel()
+{
+    player.Restart();
+    if (!LoadLevel(level))
+    {
+        Reset();
+    }
 }
 
 void Game::Reset()
 {
-    SetupLasers();
-    SetupSwitches();
+    level = 0;
+    potato = false;
+    player.Restart();
+    state = Title_State;
 }
 
 void Game::NextState()
 {
-    if (state == Title_State)
+    switch(state)
     {
-        state = Instructions_State;
-    }
-    else if (state == Instructions_State)
-    {
-        state = Play_State;
-    }
-    else if (state == Win_State)
-    {
-        state = Credits_State;
-    }
-    else if (state == Gameover_State)
-    {
-        state = Credits_State;
-    }
-    else if (state == Potato_State)
-    {
-        state = Play_State;
-        if (player.dead)
+        case Title_State:
         {
-            state = Gameover_State;
-        }
-    }
-    else if (state == Play_State)
-    {
-        if (player.dead)
-        {
-            state = Gameover_State;
-        }
-    }
-    else if (state == Credits_State)
-    {
-        player.Restart();
-        state = Title_State;
-        potato = false;
-    }
-}
+            state = Instructions_State;
+        } break;
 
-void Game::SetupLasers()
-{
-    /*
-        0 - off
-        1 - up
-        2 - right
-        4 - down
-        8 - left
-    */
-    unsigned lasermap[] = {
-        2|4, 0|0, 0|0, 0|0, 0|0,
-        0|0, 0|0, 0|0, 4|8, 0|0,
-        0|0, 0|0, 0|0, 0|0, 0|0,
-        0|0, 1|2, 0|0, 0|0, 0|0,
-        0|0, 0|0, 0|0, 0|0, 1|8
-    };
-
-    for (unsigned y = 0; y < 5; y++)
-    {
-        unsigned ypos = 64 + (y * 128);
-        for (unsigned x = 0; x < 5; x++)
+        case Instructions_State:
         {
-            unsigned xpos = 64 + (x * 128);
-            unsigned i = x + (y*5);
-            unsigned key = lasermap[i];
-            if (key > 0)
+            state = Play_State;
+            if (!LoadLevel(level))
             {
-                if (key & 1) { Laser::Add(xpos, ypos, Laser_Up); }
-                if (key & 2) { Laser::Add(xpos, ypos, Laser_Right); }
-                if (key & 4) { Laser::Add(xpos, ypos, Laser_Down); }
-                if (key & 8) { Laser::Add(xpos, ypos, Laser_Left); }
+                Reset();
             }
-        }
-    }
-}
+        } break;
 
-void Game::SetupSwitches()
-{
-    unsigned switchmap[] = {
-        0,0,1,0,
-        0,0,0,0,
-        0,1,0,0,
-        0,0,0,0
-    };
-
-    unsigned connectioncountmap[] = {
-        0,0,1,0,
-        0,0,0,0,
-        0,2,0,0,
-        0,0,0,0
-    };
-
-    for (unsigned y = 0; y < 4; y++)
-    {
-        unsigned ypos = 128 + (y * 128);
-        for (unsigned x = 0; x < 4; x++)
+        case Play_State:
         {
-            unsigned xpos = 128 + (x * 128);
-            unsigned i = x + (y*4);
-            unsigned key = switchmap[i];
-            if (key > 0)
+            if (player.dead)
             {
-                Switch s;
-                s.posx = xpos;
-                s.posy = ypos;
-                Switch::Add(s);
+                state = Gameover_State;
             }
-        }
+        } break;
+
+        case Credits_State:
+        {
+            Reset();
+        } break;
+
+        case Win_State:
+        {
+            level++;
+            if (!LoadLevel(level))
+            {
+                state = Gameover_State;
+            }
+            else
+            {
+                player.Restart();
+                state = Play_State;
+            }
+        } break;
+
+        case Gameover_State:
+        {
+            state = Credits_State;
+        } break;
+
+        case Potato_State:
+        {
+            state = Play_State;
+            if (player.dead)
+            {
+                state = Gameover_State;
+            }
+        } break;
     }
-
-/*
-    Switch s1;
-    s1.AddConnection(0, Laser_Up, Laser_Right);
-    s1.AddConnection(1, Laser_Right, Laser_Left);
-    s1.posx = 64;
-    s1.posy = WINDOW_HEIGHT / 2;
-    Switch::Add(s1);
-
-    Switch s2;
-    s2.AddConnection(1, Laser_Right, Laser_Down);
-    s2.posx = (WINDOW_WIDTH / 2) + 128;
-    s2.posy = WINDOW_HEIGHT / 2;
-    Switch::Add(s2);
-*/
 }
-
 
 void RenderPackedPackage(unsigned* package, unsigned packagelength, SDL_Surface* dest, unsigned color)
 {

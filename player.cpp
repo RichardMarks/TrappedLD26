@@ -13,7 +13,7 @@ Player::Player()
     r.h = 48;
     posx = (WINDOW_WIDTH - r.w) / 2;
     posy = (WINDOW_HEIGHT - r.h) / 2;
-    speed = 4;
+    speed = 7;
     wingame = false;
     Player::handle = this;
     dead = false;
@@ -124,7 +124,11 @@ Laser* Player::HitLaser()
     for (unsigned li = 0; li < Laser::lasers.size(); li++)
     {
         Laser& l = Laser::lasers[li];
-        if (RectsCollide(r, l.r))
+        if (
+            RectsCollide(r, l.lr1) ||
+            RectsCollide(r, l.lr2) ||
+            RectsCollide(r, l.lr3) ||
+            RectsCollide(r, l.lr4))
         {
             return &l;
         }

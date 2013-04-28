@@ -99,15 +99,47 @@ int main(int argc, char* argv[])
                         case SDLK_SPACE: {
                             game.NextState();
                         }
+
+                        case SDLK_F4:
+                        {
+                            if (game.state == Play_State)
+                            {
+                                game.Save();
+                            }
+                        } break;
+
+                        case SDLK_F5:
+                        {
+                            if (game.state == Play_State)
+                            {
+                                game.Load();
+                            }
+                        } break;
+
+                        case SDLK_r:
+                        {
+                            if (game.state == Play_State)
+                            {
+                                game.RestartLevel();
+                            }
+                        } break;
+
+                        case SDLK_RETURN: {
+                            game.NextState();
+                        }
                         default: break;
                     }
                 }
                 case SDL_MOUSEBUTTONDOWN:
                 {
-                    if (sdlevent.button.button == SDL_BUTTON_LEFT)
+                    if (sdlevent.button.state == SDL_PRESSED)
                     {
-                        game.NextState();
+                        if (sdlevent.button.button == SDL_BUTTON_LEFT)
+                        {
+                            game.NextState();
+                        }
                     }
+
                 }
                 case SDL_ACTIVEEVENT:
                 {

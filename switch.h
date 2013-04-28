@@ -25,9 +25,10 @@ class Switch
     SDL_Rect r;
     std::vector<SwitchConnection> connectionlist;
     Switch();
-    void AddConnection(unsigned laserid, unsigned patha, unsigned pathb);
+    void AddConnection(unsigned laserid, unsigned pathb);
     void Draw(SDL_Surface* dest);
     void Flip();
 };
-
+extern unsigned SwitchX(unsigned xpos);
+extern unsigned SwitchY(unsigned ypos);
 #endif

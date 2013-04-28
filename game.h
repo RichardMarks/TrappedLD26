@@ -24,11 +24,15 @@ class Game
     unsigned state;
     Player player;
     bool potato;
+    unsigned level;
     Game();
     void Reset();
     void NextState();
     void SetupLasers();
     void SetupSwitches();
+    void Save();
+    void Load();
+    void RestartLevel();
 };
 extern void RenderPackedPackage(unsigned* package, unsigned packagelength, SDL_Surface* dest, unsigned color);
 #endif

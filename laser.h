@@ -9,8 +9,8 @@ enum
     Laser_Off = 0,
     Laser_Up = 1,
     Laser_Right = 2,
-    Laser_Down = 3,
-    Laser_Left = 4
+    Laser_Down = 4,
+    Laser_Left = 8
 };
 
 class Laser
@@ -19,15 +19,18 @@ class Laser
     static std::vector<Laser> lasers;
     static void Add(int x, int y, int d);
     static void DrawAll(SDL_Surface* dest);
+    static void Map(unsigned* lasermap);
     unsigned id;
     unsigned posx;
     unsigned posy;
     unsigned direction;
     unsigned thickness;
     unsigned color;
-    SDL_Rect r, r2;
+    SDL_Rect tr;
+    SDL_Rect lr1, lr2, lr3, lr4;
     Laser();
-    void Draw(SDL_Surface* dest);
+    void DrawBeams(SDL_Surface* dest);
+    void DrawBoxes(SDL_Surface* dest);
 };
 
 #endif

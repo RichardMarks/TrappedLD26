@@ -28,11 +28,11 @@ void Switch::DrawAll(SDL_Surface* dest)
     }
 }
 
-void Switch::AddConnection(unsigned laserid, unsigned patha, unsigned pathb)
+void Switch::AddConnection(unsigned laserid, unsigned pathb)
 {
     SwitchConnection connection;
     connection.id = laserid;
-    connection.patha = patha;
+    connection.patha = Laser::lasers[laserid].direction;
     connection.pathb = pathb;
     connectionlist.push_back(connection);
 }
@@ -61,7 +61,7 @@ void Switch::Flip()
     {
         SwitchConnection& connection = connectionlist[i];
         Laser& laser = Laser::lasers[connection.id];
-        if (laser.direction == connection.patha)
+        if (flipped)
         {
             laser.direction = connection.pathb;
         }

@@ -2,6 +2,7 @@ bin/*
 obj/*
 *.depend
 *.dll
-
 *.o
 *.exe
+*.zip
+*.7z

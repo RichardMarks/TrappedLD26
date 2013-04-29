@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="audio.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="926" topLine="25" />
+	</File>
+	<File name="audio.h" open="1" top="0" tabpos="2">
+		<Cursor position="280" topLine="0" />
+	</File>
+	<File name="collision.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="553" topLine="0" />
+	</File>
+	<File name="collision.h" open="1" top="0" tabpos="4">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="data.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2502" topLine="12" />
+	</File>
+	<File name="data.h" open="0" top="0" tabpos="0">
+		<Cursor position="249" topLine="0" />
+	</File>
+	<File name="game.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="744" topLine="9" />
+	</File>
+	<File name="game.h" open="1" top="0" tabpos="5">
+		<Cursor position="508" topLine="7" />
+	</File>
+	<File name="kbdevice.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="61" topLine="0" />
+	</File>
+	<File name="kbdevice.h" open="0" top="0" tabpos="0">
+		<Cursor position="128" topLine="0" />
+	</File>
+	<File name="laser.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="676" topLine="0" />
+	</File>
+	<File name="laser.h" open="0" top="0" tabpos="0">
+		<Cursor position="674" topLine="5" />
+	</File>
+	<File name="levels.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="458" topLine="0" />
+	</File>
+	<File name="levels.h" open="0" top="0" tabpos="0">
+		<Cursor position="68" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1598" topLine="51" />
+	</File>
+	<File name="player.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="170" topLine="15" />
+	</File>
+	<File name="switch.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="108" topLine="0" />
+	</File>
+	<File name="switch.h" open="0" top="0" tabpos="0">
+		<Cursor position="716" topLine="2" />
+	</File>
+</CodeBlocks_layout_file>
